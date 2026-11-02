@@ -1,0 +1,14 @@
+services:
+  hyperx-engine:
+    build: .
+    container_name: xosonic-hyperx-engine
+    restart: unless-stopped
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+      - HOST=0.0.0.0
+      - NODE_ENV=production
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN:-}
+      - DISCORD_CLIENT_ID=${DISCORD_CLIENT_ID:-}
+      - DISCORD_GUILD_ID=${DISCORD_GUILD_ID:-}
