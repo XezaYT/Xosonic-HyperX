@@ -47,10 +47,10 @@ async function deploy() {
     console.log(`[XosonicBot] Registering ${commands.length} slash commands...`);
 
     if (guildId) {
-      await rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands });
+      await rest.put(Routes.applicationGuildCommands(clientId!, guildId), { body: commands });
       console.log(`[XosonicBot] Successfully registered slash commands for guild ${guildId}`);
     } else {
-      await rest.put(Routes.applicationCommands(clientId), { body: commands });
+      await rest.put(Routes.applicationCommands(clientId!), { body: commands });
       console.log('[XosonicBot] Successfully registered global slash commands.');
     }
   } catch (err) {
